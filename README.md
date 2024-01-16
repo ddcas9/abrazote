@@ -59,15 +59,5 @@ http://<your_ip>:5000/sections/<section_id> - Get an individual section or updat
 
 http://<your_ip>:5000/<consent_id>/<lang> - this gets a consent translated into the target language lang passed in as a query parameter. The SUPPORTED_LANGUAGES_STR environment variable should be set to Spanish (es) and French (fr), but feel free to try others. The form of the string is "["es", "fr"]". Try not to deploy more than two languages, since these are what the consents are instantly translated to upon submission for now. If lang is not in SUPPORTED_LANGUAGES, the translate route will be called with the target lang (e.g. 'ja' or 'it'). 
 
-## Notes
 
-When you perform a translation into a new language, by using the last route listed above, the new sections are not returned as they should be. Instead the Response object returns an empty list. This is weird. 
-
-There is also some very ugly code here. E.g. this:
-
-body['some_prop'].join(body['some_other_prop'])
-
-Is technically pythonic but disgusting to me. This is really a context where it's okay to use the + operator. 
-
-Hard deletes are not currently supported. 
 
